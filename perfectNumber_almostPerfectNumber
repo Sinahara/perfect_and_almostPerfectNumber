@@ -1,0 +1,33 @@
+def faktor_angka(angka):
+    faktor = []
+    for i in range(1, angka):
+        if angka % i == 0:
+            faktor.append(i)
+    return faktor
+
+def cek_perfect_number(angka):
+    faktor = faktor_angka(angka)
+    jumlah_faktor = sum(faktor)
+    if jumlah_faktor == angka:
+        return True
+    return False
+
+def cek_almost_perfect_number(angka):
+    faktor = faktor_angka(angka)
+    jumlah_faktor = sum(faktor)
+    if abs(jumlah_faktor - angka) == 1:
+        return True
+    return False
+
+def main():
+    angka = int(input("Masukkan sebuah angka: "))
+
+    if cek_perfect_number(angka):
+        print(angka, "merupakan Perfect Number.")
+    elif cek_almost_perfect_number(angka):
+        print(angka, "merupakan Almost Perfect Number.")
+    else:
+        print(angka, "bukan Perfect Number maupun Almost Perfect Number.")
+
+if __name__ == "__main__":
+    main()
